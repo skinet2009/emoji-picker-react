@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { cx } from 'flairup';
 
 import { ClassNames } from '../../DomUtils/classNames';

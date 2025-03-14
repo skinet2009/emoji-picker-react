@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { cx } from 'flairup';
 
 import { darkMode, stylesheet } from '../../Stylesheet/stylesheet';
