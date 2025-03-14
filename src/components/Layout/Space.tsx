@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import React from 'react';
 
 
 type Props = Readonly<{

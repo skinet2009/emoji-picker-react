@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import React from 'react';
 import { PickerStyleTag } from './Stylesheet/stylesheet';
 import { Reactions } from './components/Reactions/Reactions';
 import { Body } from './components/body/Body';

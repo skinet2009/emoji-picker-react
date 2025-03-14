@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { focusElement } from '../../DomUtils/focusElement';
 import { NullableElement } from '../../DomUtils/selectors';

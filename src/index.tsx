@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import React from 'react';
 import EmojiPickerReact from './EmojiPickerReact';
 import ErrorBoundary from './components/ErrorBoundary';
 import { PickerConfig } from './config/config';

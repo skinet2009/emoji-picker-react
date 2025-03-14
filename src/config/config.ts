@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { DEFAULT_REACTIONS } from '../components/Reactions/DEFAULT_REACTIONS';
 import { GetEmojiUrl } from '../components/emoji/BaseEmojiProps';
