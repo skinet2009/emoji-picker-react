@@ -43,10 +43,12 @@ export function EmojiVariationPicker() {
   const emojiStyle = useEmojiStyleConfig();
 
   const { getTop, getMenuDirection } = useVariationPickerTop(
-    VariationPickerRef
+    VariationPickerRef as RefObject<HTMLElement>
   );
   const setAnchoredEmojiRef = useSetAnchoredEmojiRef();
-  const getPointerStyle = usePointerStyle(VariationPickerRef);
+  const getPointerStyle = usePointerStyle(
+    VariationPickerRef as RefObject<HTMLElement>
+  );
   const getEmojiUrl = useGetEmojiUrlConfig();
 
   const button = buttonFromTarget(AnchoredEmojiRef.current);

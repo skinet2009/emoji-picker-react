@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 import { usePickerConfig } from '../components/context/PickerConfigContext';
 import {
   EmojiClickData,
@@ -119,7 +121,7 @@ export function useClassNameConfig(): string {
   return className;
 }
 
-export function useStyleConfig(): React.CSSProperties {
+export function useStyleConfig(): CSSProperties {
   const { height, width, style } = usePickerConfig();
   return { height: getDimension(height), width: getDimension(width), ...style };
 }

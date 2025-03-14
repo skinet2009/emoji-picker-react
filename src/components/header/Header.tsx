@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { cx } from 'flairup';
 
 import { commonInteractionStyles } from '../../Stylesheet/stylesheet';

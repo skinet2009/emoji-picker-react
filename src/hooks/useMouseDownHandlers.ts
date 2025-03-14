@@ -37,7 +37,7 @@ export function useMouseDownHandlers(
   ContainerRef: MutableRefObject<NullableElement>,
   mouseEventSource: MOUSE_EVENT_SOURCE
 ) {
-  const mouseDownTimerRef = useRef<undefined | number>();
+  const mouseDownTimerRef = useRef<undefined | number>(undefined);
   const setVariationPicker = useSetVariationPicker();
   const disallowClickRef = useDisallowClickRef();
   const [, setEmojiVariationPicker] = useEmojiVariationPickerState();
