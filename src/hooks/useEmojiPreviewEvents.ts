@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 
 import { detectEmojyPartiallyBelowFold } from '../DomUtils/detectEmojyPartiallyBelowFold';
 import { focusElement } from '../DomUtils/focusElement';
@@ -16,7 +16,7 @@ import {
 
 export function useEmojiPreviewEvents(
   allow: boolean,
-  setPreviewEmoji: React.Dispatch<React.SetStateAction<PreviewEmoji>>
+  setPreviewEmoji: Dispatch<SetStateAction<PreviewEmoji>>
 ) {
   const BodyRef = useBodyRef();
   const isMouseDisallowed = useIsMouseDisallowed();
@@ -106,7 +106,7 @@ export function useEmojiPreviewEvents(
 
 function handlePartiallyVisibleElementFocus(
   button: HTMLElement,
-  setPreviewEmoji: React.Dispatch<React.SetStateAction<PreviewEmoji>>
+  setPreviewEmoji: Dispatch<SetStateAction<PreviewEmoji>>
 ) {
   const { unified, originalUnified } = allUnifiedFromEmojiElement(button);
 

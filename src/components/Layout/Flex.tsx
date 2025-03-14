@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import  React from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 import { stylesheet } from '../../Stylesheet/stylesheet';
 
@@ -9,9 +9,9 @@ export enum FlexDirection {
 }
 
 type Props = Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   direction?: FlexDirection;
 }>;
 
