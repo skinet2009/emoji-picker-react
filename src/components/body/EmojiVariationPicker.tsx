@@ -1,6 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
-import { useEffect } from 'react';
+import { CSSProperties, RefObject, useEffect } from 'react';
 
 import { ClassNames } from '../../DomUtils/classNames';
 import { focusFirstVisibleEmoji } from '../../DomUtils/keyboardNavigation';
@@ -106,10 +105,10 @@ export function EmojiVariationPicker() {
   );
 }
 
-function usePointerStyle(VariationPickerRef: React.RefObject<HTMLElement>) {
+function usePointerStyle(VariationPickerRef: RefObject<HTMLElement>) {
   const AnchoredEmojiRef = useAnchoredEmojiRef();
   return function getPointerStyle() {
-    const style: React.CSSProperties = {};
+    const style: CSSProperties = {};
     if (!VariationPickerRef.current) {
       return style;
     }
@@ -131,9 +130,7 @@ function usePointerStyle(VariationPickerRef: React.RefObject<HTMLElement>) {
   };
 }
 
-function useVariationPickerTop(
-  VariationPickerRef: React.RefObject<HTMLElement>
-) {
+function useVariationPickerTop(VariationPickerRef: RefObject<HTMLElement>) {
   const AnchoredEmojiRef = useAnchoredEmojiRef();
   const BodyRef = useBodyRef();
   let direction = Direction.Up;

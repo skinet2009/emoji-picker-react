@@ -61,7 +61,8 @@ module.exports = {
     'no-var': 2,
     'no-warning-comments': 1,
     'object-shorthand': [2, 'always', { avoidQuotes: true }],
-    'prefer-const': 2
+    'prefer-const': 2,
+    'react/react-in-jsx-scope': 'off' // Отключаем правило
   },
   settings: {
     'import/parsers': {

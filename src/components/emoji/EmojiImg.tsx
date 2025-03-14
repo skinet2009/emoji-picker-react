@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { CSSProperties } from 'react';
 
 import { stylesheet } from '../../Stylesheet/stylesheet';
 import { EmojiStyle } from '../../types/exposedTypes';
@@ -16,17 +16,22 @@ export function EmojiImg({
 }: {
   emojiName: string;
   emojiStyle: EmojiStyle;
-  style: React.CSSProperties;
+  style: CSSProperties;
   lazyLoad?: boolean;
   imgUrl: string;
-    onError: () => void;
+  onError: () => void;
   className?: string;
 }) {
   return (
     <img
       src={imgUrl}
       alt={emojiName}
-      className={cx(styles.emojiImag, emojiStyles.external, emojiStyles.common, className)}
+      className={cx(
+        styles.emojiImag,
+        emojiStyles.external,
+        emojiStyles.common,
+        className
+      )}
       loading={lazyLoad ? 'lazy' : 'eager'}
       onError={onError}
       style={style}

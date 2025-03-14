@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { usePickerConfig } from '../components/context/PickerConfigContext';
 import {
   EmojiClickData,
@@ -89,8 +87,7 @@ export function useOnEmojiClickConfig(
   return handler || (() => {});
 }
 
-export function useOnSkinToneChangeConfig(
-): (skinTone: SkinTones) => void {
+export function useOnSkinToneChangeConfig(): (skinTone: SkinTones) => void {
   const { current } = useMutableConfig();
 
   return current.onSkinToneChange || (() => {});

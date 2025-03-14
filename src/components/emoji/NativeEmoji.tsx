@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { CSSProperties } from 'react';
 
 import { stylesheet } from '../../Stylesheet/stylesheet';
 import { parseNativeEmoji } from '../../dataUtils/parseNativeEmoji';
@@ -12,7 +12,7 @@ export function NativeEmoji({
   className
 }: {
   unified: string;
-  style: React.CSSProperties;
+  style: CSSProperties;
   className?: string;
 }) {
   return (

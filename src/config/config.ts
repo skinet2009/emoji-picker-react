@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { CSSProperties } from 'react';
 
 import { DEFAULT_REACTIONS } from '../components/Reactions/DEFAULT_REACTIONS';
 import { GetEmojiUrl } from '../components/emoji/BaseEmojiProps';
@@ -115,7 +115,7 @@ export type PickerConfigInternal = {
   className: string;
   height: PickerDimensions;
   width: PickerDimensions;
-  style: React.CSSProperties;
+  style: CSSProperties;
   getEmojiUrl: GetEmojiUrl;
   searchDisabled: boolean;
   skinTonePickerLocation: SkinTonePickerLocation;

@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { EmojiStyle } from '../../types/exposedTypes';
 
 import { GetEmojiUrl } from './BaseEmojiProps';

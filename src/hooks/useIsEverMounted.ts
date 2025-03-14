@@ -1,11 +1,11 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 let isEverMounted = false;
 
 export function useIsEverMounted() {
-  const [isMounted, setIsMounted] = React.useState(isEverMounted);
+  const [isMounted, setIsMounted] = useState(isEverMounted);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsMounted(true);
     isEverMounted = true;
   }, []);

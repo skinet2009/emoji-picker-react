@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { DataEmoji } from '../../dataUtils/DataTypes';
 import { emojiHasVariations, emojiNames } from '../../dataUtils/emojiSelectors';
 

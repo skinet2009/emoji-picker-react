@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import * as React from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 
 export function useMarkInitialLoad(
-  dispatch: React.Dispatch<React.SetStateAction<boolean>>
+  dispatch: Dispatch<SetStateAction<boolean>>
 ) {
   useEffect(() => {
     dispatch(true);

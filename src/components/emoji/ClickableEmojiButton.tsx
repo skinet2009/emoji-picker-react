@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { ReactNode } from 'react';
 
 import { ClassNames } from '../../DomUtils/classNames';
 import {
@@ -14,7 +14,7 @@ type ClickableEmojiButtonProps = Readonly<{
   showVariations?: boolean;
   hiddenOnSearch?: boolean;
   emojiNames: string[];
-  children: React.ReactNode;
+  children: ReactNode;
   hasVariations: boolean;
   unified?: string;
   noBackground?: boolean;

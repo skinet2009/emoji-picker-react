@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 type Props = Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }>;
 
 export default function Absolute({ children, className, style }: Props) {

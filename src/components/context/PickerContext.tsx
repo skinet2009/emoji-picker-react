@@ -1,5 +1,13 @@
-import * as React from 'react';
-import { useState } from 'react';
+import {
+  createContext,
+  Dispatch,
+  MutableRefObject,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useRef,
+  useState
+} from 'react';
 
 import {
   useDefaultSkinToneConfig,
@@ -19,12 +27,10 @@ export function PickerContextProvider({ children }: Props) {
   const reactionsDefaultOpen = useReactionsOpenConfig();
 
   // Initialize the filter with the inititial dictionary
-  const filterRef = React.useRef<FilterState>(alphaNumericEmojiIndex);
-  const disallowClickRef = React.useRef<boolean>(false);
-  const disallowMouseRef = React.useRef<boolean>(false);
-  const disallowedEmojisRef = React.useRef<Record<string, boolean>>(
-    disallowedEmojis
-  );
+  const filterRef = useRef<FilterState>(alphaNumericEmojiIndex);
+  const disallowClickRef = useRef<boolean>(false);
+  const disallowMouseRef = useRef<boolean>(false);
+  const disallowedEmojisRef = useRef<Record<string, boolean>>(disallowedEmojis);
 
   const suggestedUpdateState = useDebouncedState(Date.now(), 200);
   const searchTerm = useDebouncedState('', 100);
@@ -61,9 +67,9 @@ export function PickerContextProvider({ children }: Props) {
   );
 }
 
-type ReactState<T> = [T, React.Dispatch<React.SetStateAction<T>>];
+type ReactState<T> = [T, Dispatch<SetStateAction<T>>];
 
-const PickerContext = React.createContext<{
+const PickerContext = createContext<{
   searchTerm: [string, (term: string) => Promise<string>];
   suggestedUpdateState: [number, (term: number) => void];
   activeCategoryState: ReactState<ActiveCategoryState>;
@@ -72,10 +78,10 @@ const PickerContext = React.createContext<{
   isPastInitialLoad: boolean;
   emojiVariationPickerState: ReactState<DataEmoji | null>;
   skinToneFanOpenState: ReactState<boolean>;
-  filterRef: React.MutableRefObject<FilterState>;
-  disallowClickRef: React.MutableRefObject<boolean>;
-  disallowMouseRef: React.MutableRefObject<boolean>;
-  disallowedEmojisRef: React.MutableRefObject<Record<string, boolean>>;
+  filterRef: MutableRefObject<FilterState>;
+  disallowClickRef: MutableRefObject<boolean>;
+  disallowMouseRef: MutableRefObject<boolean>;
+  disallowedEmojisRef: MutableRefObject<Record<string, boolean>>;
   reactionsModeState: ReactState<boolean>;
 }>({
   activeCategoryState: [null, () => {}],
@@ -94,31 +100,31 @@ const PickerContext = React.createContext<{
 });
 
 type Props = Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>;
 
 export function useFilterRef() {
-  const { filterRef } = React.useContext(PickerContext);
+  const { filterRef } = useContext(PickerContext);
   return filterRef;
 }
 
 export function useDisallowClickRef() {
-  const { disallowClickRef } = React.useContext(PickerContext);
+  const { disallowClickRef } = useContext(PickerContext);
   return disallowClickRef;
 }
 
 export function useDisallowMouseRef() {
-  const { disallowMouseRef } = React.useContext(PickerContext);
+  const { disallowMouseRef } = useContext(PickerContext);
   return disallowMouseRef;
 }
 
 export function useReactionsModeState() {
-  const { reactionsModeState } = React.useContext(PickerContext);
+  const { reactionsModeState } = useContext(PickerContext);
   return reactionsModeState;
 }
 
 export function useSearchTermState() {
-  const { searchTerm } = React.useContext(PickerContext);
+  const { searchTerm } = useContext(PickerContext);
   return searchTerm;
 }
 
@@ -126,37 +132,37 @@ export function useActiveSkinToneState(): [
   SkinTones,
   (skinTone: SkinTones) => void
 ] {
-  const { activeSkinTone } = React.useContext(PickerContext);
+  const { activeSkinTone } = useContext(PickerContext);
   return activeSkinTone;
 }
 
 export function useEmojisThatFailedToLoadState() {
-  const { emojisThatFailedToLoadState } = React.useContext(PickerContext);
+  const { emojisThatFailedToLoadState } = useContext(PickerContext);
   return emojisThatFailedToLoadState;
 }
 
 export function useIsPastInitialLoad(): boolean {
-  const { isPastInitialLoad } = React.useContext(PickerContext);
+  const { isPastInitialLoad } = useContext(PickerContext);
   return isPastInitialLoad;
 }
 
 export function useEmojiVariationPickerState() {
-  const { emojiVariationPickerState } = React.useContext(PickerContext);
+  const { emojiVariationPickerState } = useContext(PickerContext);
   return emojiVariationPickerState;
 }
 
 export function useSkinToneFanOpenState() {
-  const { skinToneFanOpenState } = React.useContext(PickerContext);
+  const { skinToneFanOpenState } = useContext(PickerContext);
   return skinToneFanOpenState;
 }
 
 export function useDisallowedEmojisRef() {
-  const { disallowedEmojisRef } = React.useContext(PickerContext);
+  const { disallowedEmojisRef } = useContext(PickerContext);
   return disallowedEmojisRef;
 }
 
 export function useUpdateSuggested(): [number, () => void] {
-  const { suggestedUpdateState } = React.useContext(PickerContext);
+  const { suggestedUpdateState } = useContext(PickerContext);
 
   const [suggestedUpdated, setsuggestedUpdate] = suggestedUpdateState;
   return [

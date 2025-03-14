@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useEffect } from 'react';
 
 import { detectEmojyPartiallyBelowFold } from '../DomUtils/detectEmojyPartiallyBelowFold';

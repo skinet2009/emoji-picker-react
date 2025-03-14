@@ -1,10 +1,9 @@
 import { cx } from 'flairup';
-import * as React from 'react';
-
+import { CSSProperties } from 'react';
 
 type Props = Readonly<{
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }>;
 
 export default function Space({ className, style = {} }: Props) {

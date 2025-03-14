@@ -1,5 +1,5 @@
 import { Styles, createSheet } from 'flairup';
-import * as React from 'react';
+import { memo } from 'react';
 
 import { ClassNames } from '../DomUtils/classNames';
 
@@ -20,7 +20,7 @@ export const commonStyles = stylesheet.create({
   }
 });
 
-export const PickerStyleTag = React.memo(function PickerStyleTag() {
+export const PickerStyleTag = memo(function PickerStyleTag() {
   return (
     <style
       suppressHydrationWarning
@@ -77,7 +77,7 @@ export const commonInteractionStyles = stylesheet.create({
   }
 });
 
-export function darkMode(key: string, value: Styles) {
+export function darkMode(key: string, value: Styles): any {
   return {
     '.epr-dark-theme': {
       [key]: value

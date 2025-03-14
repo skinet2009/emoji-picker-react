@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 import { ClassNames } from '../../DomUtils/classNames';
 import { stylesheet } from '../../Stylesheet/stylesheet';
@@ -19,7 +19,7 @@ import {
 } from '../context/PickerContext';
 
 type Props = Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>;
 
 export const DEFAULT_LABEL_HEIGHT = 40;
@@ -34,8 +34,8 @@ export default function PickerMain({ children }: Props) {
 
 type RootProps = Readonly<{
   className?: string;
-  style?: React.CSSProperties;
-  children: React.ReactNode;
+  style?: CSSProperties;
+  children: ReactNode;
 }>;
 
 function PickerRootElement({ children }: RootProps) {
@@ -97,8 +97,10 @@ const DarkTheme = {
     'var(--epr-dark-category-icon-active-color)',
   '--epr-skin-tone-picker-menu-color':
     'var(--epr-dark-skin-tone-picker-menu-color)',
-  '--epr-skin-tone-outer-border-color': 'var(--epr-dark-skin-tone-outer-border-color)',
-  '--epr-skin-tone-inner-border-color': 'var(--epr-dark-skin-tone-inner-border-color)'
+  '--epr-skin-tone-outer-border-color':
+    'var(--epr-dark-skin-tone-outer-border-color)',
+  '--epr-skin-tone-inner-border-color':
+    'var(--epr-dark-skin-tone-inner-border-color)'
 };
 
 const styles = stylesheet.create({
@@ -213,8 +215,9 @@ const styles = stylesheet.create({
       '--epr-dark-emoji-variation-indicator-color': '#444',
       '--epr-dark-category-icon-active-color': '#3271b7',
       '--epr-dark-skin-tone-picker-menu-color': '#22222295',
-      '--epr-dark-skin-tone-outer-border-color': 'var(--epr-dark-picker-border-color)',
-      '--epr-dark-skin-tone-inner-border-color': '#00000000',
+      '--epr-dark-skin-tone-outer-border-color':
+        'var(--epr-dark-picker-border-color)',
+      '--epr-dark-skin-tone-inner-border-color': '#00000000'
     }
   },
   autoThemeDark: {

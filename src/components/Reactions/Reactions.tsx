@@ -1,5 +1,4 @@
 import { cx } from 'flairup';
-import * as React from 'react';
 
 import { commonStyles, stylesheet } from '../../Stylesheet/stylesheet';
 import {

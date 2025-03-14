@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { ReactNode } from 'react';
 
 import { ClassNames } from '../../DomUtils/classNames';
 import {
@@ -15,7 +15,7 @@ import {
 
 type Props = Readonly<{
   categoryConfig: CategoryConfig;
-  children?: React.ReactNode;
+  children?: ReactNode;
   hidden?: boolean;
   hiddenOnSearch?: boolean;
 }>;

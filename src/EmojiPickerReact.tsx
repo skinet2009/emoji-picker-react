@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { PickerStyleTag } from './Stylesheet/stylesheet';
 import { Reactions } from './components/Reactions/Reactions';
@@ -29,10 +29,10 @@ function ContentControl() {
   const [reactionsDefaultOpen] = useReactionsModeState();
   const allowExpandReactions = useAllowExpandReactions();
 
-  const [renderAll, setRenderAll] = React.useState(!reactionsDefaultOpen);
+  const [renderAll, setRenderAll] = useState(!reactionsDefaultOpen);
   const isOpen = useOpenConfig();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (reactionsDefaultOpen && !allowExpandReactions) {
       return;
     }
@@ -68,5 +68,4 @@ function ExpandedPickerContent({ renderAll }: { renderAll: boolean }) {
   );
 }
 
-// eslint-disable-next-line complexity
-export default React.memo(EmojiPicker, compareConfig);
+export default memo(EmojiPicker, compareConfig);

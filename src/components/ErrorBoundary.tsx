@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Component, ReactNode } from 'react';
 
-export default class ErrorBoundary extends React.Component<
-  { children: React.ReactNode },
+export default class ErrorBoundary extends Component<
+  { children: ReactNode },
   { hasError: boolean }
 > {
-  constructor(props: { children: React.ReactNode }) {
+  constructor(props: { children: ReactNode }) {
     super(props);
     this.state = { hasError: false };
   }

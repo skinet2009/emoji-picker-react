@@ -1,11 +1,11 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
 import { stylesheet } from '../../Stylesheet/stylesheet';
 
 interface Props
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
   className?: string;

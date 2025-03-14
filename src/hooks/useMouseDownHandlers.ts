@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useEffect, useRef } from 'react';
+import { MutableRefObject, useCallback, useEffect, useRef } from 'react';
 
 import {
   emojiFromElement,
@@ -35,7 +34,7 @@ import { useCloseAllOpenToggles } from './useCloseAllOpenToggles';
 import useSetVariationPicker from './useSetVariationPicker';
 
 export function useMouseDownHandlers(
-  ContainerRef: React.MutableRefObject<NullableElement>,
+  ContainerRef: MutableRefObject<NullableElement>,
   mouseEventSource: MOUSE_EVENT_SOURCE
 ) {
   const mouseDownTimerRef = useRef<undefined | number>();
@@ -49,7 +48,7 @@ export function useMouseDownHandlers(
   const getEmojiUrl = useGetEmojiUrlConfig();
   const activeEmojiStyle = useEmojiStyleConfig();
 
-  const onClick = React.useCallback(
+  const onClick = useCallback(
     function onClick(event: MouseEvent) {
       if (disallowClickRef.current) {
         return;
@@ -84,7 +83,7 @@ export function useMouseDownHandlers(
     ]
   );
 
-  const onMouseDown = React.useCallback(
+  const onMouseDown = useCallback(
     function onMouseDown(event: MouseEvent) {
       if (mouseDownTimerRef.current) {
         clearTimeout(mouseDownTimerRef.current);
@@ -111,7 +110,7 @@ export function useMouseDownHandlers(
       setEmojiVariationPicker
     ]
   );
-  const onMouseUp = React.useCallback(
+  const onMouseUp = useCallback(
     function onMouseUp() {
       if (mouseDownTimerRef.current) {
         clearTimeout(mouseDownTimerRef.current);

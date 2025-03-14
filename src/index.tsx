@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import EmojiPickerReact from './EmojiPickerReact';
 import ErrorBoundary from './components/ErrorBoundary';
 import { PickerConfig } from './config/config';
@@ -15,7 +13,7 @@ export {
   SkinTones,
   Theme,
   Categories,
-  EmojiClickData,
+  type EmojiClickData,
   SuggestionMode,
   SkinTonePickerLocation
 } from './types/exposedTypes';
@@ -26,7 +24,7 @@ export default function EmojiPicker(props: PickerProps) {
   const MutableConfigRef = useDefineMutableConfig({
     onEmojiClick: props.onEmojiClick,
     onReactionClick: props.onReactionClick,
-    onSkinToneChange: props.onSkinToneChange,
+    onSkinToneChange: props.onSkinToneChange
   });
 
   return (

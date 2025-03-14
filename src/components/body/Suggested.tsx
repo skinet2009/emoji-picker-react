@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useMemo } from 'react';
 
 import { CategoryConfig } from '../../config/categoryConfig';
 import {
@@ -23,7 +23,7 @@ export function Suggested({ categoryConfig }: Props) {
   const isMounted = useIsEverMounted();
   const suggestedEmojisModeConfig = useSuggestedEmojisModeConfig();
   const getEmojiUrl = useGetEmojiUrlConfig();
-  const suggested = React.useMemo(
+  const suggested = useMemo(
     () => getSuggested(suggestedEmojisModeConfig) ?? [],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [suggestedUpdated, suggestedEmojisModeConfig]

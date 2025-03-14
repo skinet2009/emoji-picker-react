@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { CSSProperties } from 'react';
 
 import { stylesheet } from '../../../Stylesheet/stylesheet';
 import { skinTonesNamed } from '../../../data/skinToneVariations';
@@ -11,7 +11,7 @@ type Props = {
   onClick: () => void;
   isActive: boolean;
   skinToneVariation: SkinTones;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 };
 
 // eslint-disable-next-line complexity
@@ -62,7 +62,8 @@ const styles = stylesheet.create({
     border: '1px solid var(--epr-skin-tone-outer-border-color)',
     boxShadow: 'inset 0px 0px 0 1px var(--epr-skin-tone-inner-border-color)',
     ':hover': {
-      boxShadow: '0 0 0 3px var(--epr-active-skin-hover-color), inset 0px 0px 0 1px var(--epr-skin-tone-inner-border-color)'
+      boxShadow:
+        '0 0 0 3px var(--epr-active-skin-hover-color), inset 0px 0px 0 1px var(--epr-skin-tone-inner-border-color)'
     },
     ':focus': {
       boxShadow: '0 0 0 3px var(--epr-focus-bg-color)'

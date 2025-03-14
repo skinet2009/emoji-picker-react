@@ -1,4 +1,10 @@
-import * as React from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState
+} from 'react';
 
 import { compareConfig } from '../../config/compareConfig';
 import {
@@ -10,12 +16,10 @@ import {
 
 type Props = PickerConfig &
   Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
   }>;
 
-const ConfigContext = React.createContext<PickerConfigInternal>(
-  basePickerConfig()
-);
+const ConfigContext = createContext<PickerConfigInternal>(basePickerConfig());
 
 export function PickerConfigProvider({ children, ...config }: Props) {
   const mergedConfig = useSetConfig(config);
@@ -28,11 +32,9 @@ export function PickerConfigProvider({ children, ...config }: Props) {
 }
 
 export function useSetConfig(config: PickerConfig) {
-  const [mergedConfig, setMergedConfig] = React.useState(() =>
-    mergeConfig(config)
-  );
+  const [mergedConfig, setMergedConfig] = useState(() => mergeConfig(config));
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (compareConfig(mergedConfig, config)) {
       return;
     }
@@ -65,5 +67,5 @@ export function useSetConfig(config: PickerConfig) {
 }
 
 export function usePickerConfig() {
-  return React.useContext(ConfigContext);
+  return useContext(ConfigContext);
 }

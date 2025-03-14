@@ -1,4 +1,11 @@
-import * as React from 'react';
+import {
+  createContext,
+  createRef,
+  MutableRefObject,
+  ReactNode,
+  useContext,
+  useRef
+} from 'react';
 
 import { focusElement } from '../../DomUtils/focusElement';
 import { NullableElement } from '../../DomUtils/selectors';
@@ -6,16 +13,16 @@ import { NullableElement } from '../../DomUtils/selectors';
 export function ElementRefContextProvider({
   children
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const PickerMainRef = React.useRef<HTMLElement>(null);
-  const AnchoredEmojiRef = React.useRef<HTMLElement>(null);
-  const BodyRef = React.useRef<HTMLDivElement>(null);
-  const SearchInputRef = React.useRef<HTMLInputElement>(null);
-  const SkinTonePickerRef = React.useRef<HTMLDivElement>(null);
-  const CategoryNavigationRef = React.useRef<HTMLDivElement>(null);
-  const VariationPickerRef = React.useRef<HTMLDivElement>(null);
-  const ReactionsRef = React.useRef<HTMLUListElement>(null);
+  const PickerMainRef = useRef<HTMLElement>(null);
+  const AnchoredEmojiRef = useRef<HTMLElement>(null);
+  const BodyRef = useRef<HTMLDivElement>(null);
+  const SearchInputRef = useRef<HTMLInputElement>(null);
+  const SkinTonePickerRef = useRef<HTMLDivElement>(null);
+  const CategoryNavigationRef = useRef<HTMLDivElement>(null);
+  const VariationPickerRef = useRef<HTMLDivElement>(null);
+  const ReactionsRef = useRef<HTMLUListElement>(null);
 
   return (
     <ElementRefContext.Provider
@@ -37,7 +44,7 @@ export function ElementRefContextProvider({
 
 export type ElementRef<
   E extends HTMLElement = HTMLElement
-> = React.MutableRefObject<E | null>;
+> = MutableRefObject<E | null>;
 
 type ElementRefs = {
   PickerMainRef: ElementRef;
@@ -50,19 +57,19 @@ type ElementRefs = {
   ReactionsRef: ElementRef<HTMLUListElement>;
 };
 
-const ElementRefContext = React.createContext<ElementRefs>({
-  AnchoredEmojiRef: React.createRef(),
-  BodyRef: React.createRef(),
-  CategoryNavigationRef: React.createRef(),
-  PickerMainRef: React.createRef(),
-  SearchInputRef: React.createRef(),
-  SkinTonePickerRef: React.createRef(),
-  VariationPickerRef: React.createRef(),
-  ReactionsRef: React.createRef()
+const ElementRefContext = createContext<ElementRefs>({
+  AnchoredEmojiRef: createRef(),
+  BodyRef: createRef(),
+  CategoryNavigationRef: createRef(),
+  PickerMainRef: createRef(),
+  SearchInputRef: createRef(),
+  SkinTonePickerRef: createRef(),
+  VariationPickerRef: createRef(),
+  ReactionsRef: createRef()
 });
 
 function useElementRef() {
-  return React.useContext(ElementRefContext);
+  return useContext(ElementRefContext);
 }
 
 export function usePickerMainRef() {

@@ -1,5 +1,5 @@
 import { cx } from 'flairup';
-import * as React from 'react';
+import { MutableRefObject, Suspense, useRef } from 'react';
 
 import { ClassNames } from '../../DomUtils/classNames';
 import { stylesheet } from '../../Stylesheet/stylesheet';
@@ -29,7 +29,7 @@ import { Suggested } from './Suggested';
 
 export function EmojiList() {
   const categories = useCategoriesConfig();
-  const renderdCategoriesCountRef = React.useRef(0);
+  const renderdCategoriesCountRef = useRef(0);
 
   return (
     <ul className={cx(styles.emojiList)}>
@@ -41,13 +41,13 @@ export function EmojiList() {
         }
 
         return (
-          <React.Suspense key={category}>
+          <Suspense key={category}>
             <RenderCategory
               category={category}
               categoryConfig={categoryConfig}
               renderdCategoriesCountRef={renderdCategoriesCountRef}
             />
-          </React.Suspense>
+          </Suspense>
         );
       })}
     </ul>
@@ -61,7 +61,7 @@ function RenderCategory({
 }: {
   category: Categories;
   categoryConfig: CategoryConfig;
-  renderdCategoriesCountRef: React.MutableRefObject<number>;
+  renderdCategoriesCountRef: MutableRefObject<number>;
 }) {
   const isEmojiHidden = useIsEmojiHidden();
   const lazyLoadEmojis = useLazyLoadEmojisConfig();
